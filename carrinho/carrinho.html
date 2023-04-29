@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Formulário de Cadastro de Itens</title> 
+</head> 
+<link rel="stylesheet" href="style.css">
+<body> 
+
+	<h1>Formulário de Cadastro de Itens</h1> <!-- Título da página -->
+
+
+	<form id="form-cadastro"> <!-- Início do formulário de cadastro de itens, atribuindo um ID -->
+
+
+		<label for="nome">Nome:</label>
+
+		<select id="filmes">
+            <option value="0">Selecione</option>
+            <option value="1">Mario O filme</option>
+            <option value="2">Bob Esponja O filme</option>
+            <option value="3">Padrinhos Mágicos O filme</option>
+            <option value="4">Detona Ralph</option>
+        </select>
+
+		<label for="preco">Preço:</label> <!-- Rótulo e campo de entrada de texto para o preço do item -->
+
+
+		<input type="number" id="preco" name="preco"><br><br> <!-- Define o tipo de entrada de dados como texto, atribuindo um ID e um nome -->
+
+		<label for="quantidade">Quantidade:</label> <!-- Rótulo e campo de entrada de texto para a quantidade do item -->
+
+	
+		<input type="number" id="quantidade" name="quantidade"><br><br> <!-- Define o tipo de entrada de dados como texto, atribuindo um ID e um nome -->
+
+		<label for="data-entrada">Data de Entrada:</label> <!-- Rótulo e campo de entrada de data para a data de entrada do item -->
+
+
+		<input type="date" id="data-entrada" name="data-entrada"><br><br> <!-- Define o tipo de entrada de dados como data, atribuindo um ID e um nome -->
+
+		<input type="submit" value="Cadastrar Item"> <!-- Botão de envio do formulário -->
+
+
+	</form> <!-- Fim do formulário de cadastro de itens -->
+
+	<button id="btn-ver-estoque">Ver Estoque</button> <!-- Botão para visualizar o estoque, atribuindo um ID -->
+
+<br><br>
+
+
+	<table id="tabela-estoque"> <!-- Início da tabela de estoque, atribuindo um ID -->
+
+		<thead> <!-- Início do cabeçalho da tabela -->
+
+			<tr> <!-- Início de uma linha da tabela -->
+				<th>Nome</th> <!-- Cabeçalho da coluna "Nome" -->
+				<th>Preço</th> <!-- Cabeçalho da coluna "Preço" -->
+				<th>Quantidade</th> <!-- Cabeçalho da coluna "Quantidade" -->
+				<th>Data de Entrada</th> <!-- Cabeçalho da coluna "Data de Entrada" -->
+				<th>Ações</th> <!-- Cabeçalho da coluna "Ações" -->
+			</tr> <!-- Fim da linha da tabela -->
+
+		</thead> <!-- Fim do cabeçalho da tabela -->
+
+		<tbody> <!-- Início do corpo da tabela -->
+		</tbody> <!-- Fim do corpo da tabela -->
+		
+	</table> <!-- Fim da tabela de estoque -->
+
+	<script src="scriptestoque.js"> </script> <!-- Importa o script JS que controla a página -->
+
+</body> <!-- Fim do corpo -->
+</html>

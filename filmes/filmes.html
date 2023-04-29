@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Filmes</title>
+</head>
+
+<body>
+    <h1>Avaliação de Filmes</h1>
+
+    <h2>Filmes disponíveis</h2>
+    <ul>
+        <li>Mario O filme</li>
+        <li>Bob Esponja O filme</li>
+        <li>Padrinhos Mágicos O filme</li>
+        <li>Detona Ralph</li>
+    </ul>
+
+    <h2>Dê sua nota</h2>
+    <form>
+        <label for="filmes">Escolha um filme:</label>
+        <select id="filmes">
+            <option value="0">Selecione</option>
+            <option value="1">Mario O filme</option>
+            <option value="2">Bob Esponja O filme</option>
+            <option value="3">Padrinhos Mágicos O filme</option>
+            <option value="4">Detona Ralph</option>
+        </select>
+        <label for="nota">Dê uma nota (0-10):</label>
+        <input type="number" id="nota" min="0" max="10" required>
+        <button type="button" onclick="darNota()">Enviar</button>
+    </form>
+
+    <h2>Média das notas</h2>
+    <form>
+        <label for="filmes-media">Escolha um filme:</label>
+        <select id="filmes-media">
+            <option value="0">Selecione</option>
+            <option value="1">Mario O filme</option>
+            <option value="2">Bob Esponja O filme</option>
+            <option value="3">Padrinhos Mágicos O filme</option>
+            <option value="4">Detona Ralph</option>
+        </select>
+        <button type="button" onclick="calcularMedia()">Calcular</button>
+    </form>
+
+    <script>
+        // Array de filmes
+        let filmes = ['Mario O filme', 'Bob Esponja O filme', 'Padrinhos Mágicos O filme', 'Detona Ralph'];
+
+        // Array de notas de cada filme
+        let notas = [[], [], [], []];
+
+        // Função para dar nota a um filme
+        function darNota() {
+            let filme = document.getElementById('filmes').value;
+
+            // Verifica se o filme escolhido é válido
+            if (filme >= 1 && filme <= 4) {
+                // Obtém a nota dada pelo usuário
+                let nota = parseFloat(document.getElementById('nota').value);
+
+                // Verifica se a nota é válida
+                if (nota >= 0 && nota <= 10) {
+                    // Adiciona a nota ao array de notas do filme correspondente
+                    notas[filme - 1].push(nota);
+
+                    // Exibe uma mensagem de confirmação para o usuário
+                    alert("O filme " + filmes[filme - 1] + " recebeu a nota " + nota);
+
+                    // Limpa o formulário
+                    document.getElementById('filmes').value = 0;
+                    document.getElementById('nota').value = '';
+                } else {
+                    alert("A nota deve estar entre 0 e 10!");
+                }
+            } else {
+                alert("Escolha um filme válido!");
+            }
+        }
+
+        // Função para calcular a média das notas de um filme
+function calcularMedia() {
+  let filme = document.getElementById('filmes-media').value;
+
+  // Verifica se o filme escolhido é válido
+  if (filme >= 1 && filme <= 4) {
+    let notasFilme = notas[filme-1];
+
+    // Verifica se há notas para o filme escolhido
+    if (notasFilme.length > 0) {
+      // Calcula a média das notas
+      let soma = 0;
+      for (let i = 0; i < notasFilme.length; i++) {
+        soma += notasFilme[i];
+      }
+      let media = soma / notasFilme.length;
+
+      // Exibe a média das notas para o usuário
+      alert("A média das notas para o filme " + filmes[filme-1] + " é " + media.toFixed(1));
+    } else {
+      alert("Não há notas para este filme ainda!");
+    }
+  } else {
+    alert("Escolha um filme válido!");
+  }
+}
+
+</script>
+</body>
+</html>
